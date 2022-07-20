@@ -1,4 +1,4 @@
-/*  
+/*
 Фабричный метод (англ. Factory Method) — порождающий шаблон проектирования,
 предоставляющий подклассам (дочерним классам) интерфейс для создания экземпляров некоторого класса.
 В момент создания наследники могут определить, какой класс создавать.
@@ -24,32 +24,32 @@ type Computer interface { // интерфейс компьютера
 	PrintDetails()
 }
 
-func New(typeName string) Computer {  // фабричный метод - общая реализация создания компьютера
-	switch typeName {				  // в зависимости от переданного типа создаем конкретный компьютер
-		case ServerType:
-			return NewServer()
-		case PersonalComputerType:
-			return NewPersonalComputer()
-		case NotebookType:
-			return NewNotebook()
-		default:
-			fmt.Printf("Введенный тип: %s не найден!!!\n", typeName)
-			return nil
+func New(typeName string) Computer { // фабричный метод - общая реализация создания компьютера
+	switch typeName { // в зависимости от переданного типа создаем конкретный компьютер
+	case ServerType:
+		return NewServer()
+	case PersonalComputerType:
+		return NewPersonalComputer()
+	case NotebookType:
+		return NewNotebook()
+	default:
+		fmt.Printf("Введенный тип: %s не найден!!!\n", typeName)
+		return nil
 	}
 }
 
 type Server struct { // структура сервер
-	Type string
-	Core int
-	Memory int
+	Type    string
+	Core    int
+	Memory  int
 	Monitor bool
 }
 
 func NewServer() Computer { // конструктор сервера
 	return Server{
-		Type: ServerType,
-		Core: 16,
-		Memory: 256,
+		Type:    ServerType,
+		Core:    16,
+		Memory:  256,
 		Monitor: false,
 	}
 }
@@ -63,17 +63,17 @@ func (s Server) PrintDetails() { // реализация структуры се
 }
 
 type PersonalComputer struct { // структура персонального компьютера
-	Type string
-	Core int
-	Memory int
+	Type    string
+	Core    int
+	Memory  int
 	Monitor bool
 }
 
 func NewPersonalComputer() Computer { // конструктор персонального компьютера
 	return PersonalComputer{
-		Type: PersonalComputerType,
-		Core: 8,
-		Memory: 32,
+		Type:    PersonalComputerType,
+		Core:    8,
+		Memory:  32,
 		Monitor: true,
 	}
 }
@@ -86,18 +86,18 @@ func (p PersonalComputer) PrintDetails() { // реализация структ�
 	fmt.Printf("Type - %s, core - %d, memory - %d, monitor - %v\n", p.Type, p.Core, p.Memory, p.Monitor)
 }
 
-type Notebook struct{ // структура ноутбука
-	Type string
-	Core int
-	Memory int
+type Notebook struct { // структура ноутбука
+	Type    string
+	Core    int
+	Memory  int
 	Monitor bool
 }
 
 func NewNotebook() Computer { // конструктор ноутбука
 	return Notebook{
-		Type: NotebookType,
-		Core: 4,
-		Memory: 8,
+		Type:    NotebookType,
+		Core:    4,
+		Memory:  8,
 		Monitor: true,
 	}
 }
