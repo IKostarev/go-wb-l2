@@ -21,5 +21,5 @@
 ## Задачи на разработку (develop)
 ~~~
 1. Базовая задача. 
-Создать go module на базе библиотеке NTP для получения точного времени. Доступ по ссылке - https://gitlab.com/IKostarev/ntp-module/ntp-module
+Создать go module на базе библиотеке NTP для получения точного времени. Доступ по ссылке - https://gitlab.com/IKostarev/go-wb-l2/-/tree/master/develop/dev01
 ~~~
